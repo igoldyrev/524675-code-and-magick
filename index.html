@@ -181,6 +181,38 @@
   </div>
 </template>
 
+<script>
+    //Размер фаербола
+    var fireballSize = 22;
+    //Скорость гнома
+    var wizardSpeed = 3;
+    //Ширина мага
+    var wizardWidth = 70;
+
+    //Скорость фаербола
+    var getFireballSpeed = function (left) {
+        if (left) {
+            return 5;
+        }
+        return 2;
+    };
+
+    //Высота гнома
+    var getWizardHeight = function () {
+        return 1.337 * wizardWidth;
+    };
+
+    //Положение по X
+    var getWizardX = function (width) {
+        return (width - wizardWidth) / 2;
+    };
+
+    //Положение по Y
+    var getWizardY = function (height) {
+        return height / 3 -getWizardHeight();
+    };
+</script>
+
 <script src="js/game.js"></script>
 
 </body>
