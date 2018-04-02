@@ -1,7 +1,7 @@
 # Учебный проект «Код и Магия» [![Build status][travis-image]][travis-url]
 
 * Студент: [Илья Голдырев](https://up.htmlacademy.ru/javascript/13/user/524675).
-* Наставник: `Неизвестно`.
+* Наставник: [Никита Ткачук](https://htmlacademy.ru/profile/id450211).
 
 ---
 
