@@ -4,7 +4,8 @@ var setupOpen = document.querySelector('.setup-open');
 var setupClose = document.querySelector('.setup-close');
 var setupFireballWrap = document.querySelector('.setup-fireball-wrap');
 var setupWizardEyes = document.querySelector('.wizard-eyes');
-var setupFireballInput = document.getElementsByName('fireball-color');
+var setupFireballInput = document.getElementById('fireball-color');
+var setupEyesColor = document.getElementById('eyes-color');
 
 var ESC_KEYCODE = 27;
 var ENTER_KEYCODE = 13;
@@ -46,12 +47,12 @@ var closePopup = function () {
 
 var randomColorFaerball = function () {
   setupFireballWrap.style.background = WIZARDS_FAERBOLS_COLORS[randomIndexFaerballColor];
+  setupFireballInput.value = WIZARDS_FAERBOLS_COLORS[randomIndexFaerballColor];
 };
-
-console.log(setupFireballInput.value)
 
 var randomColorEyes = function () {
   setupWizardEyes.style.fill = WIZARD_COLORS_EYES[randomIndexEyesColor];
+  setupEyesColor.value = WIZARD_COLORS_EYES[randomIndexEyesColor];
 };
 
 setupFireballWrap.addEventListener('click', randomColorFaerball);
