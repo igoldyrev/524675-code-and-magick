@@ -38,17 +38,17 @@
 
   window.wizard.onEyesChange = function (color) {
     eyesColor = color;
-    updateWizards();
+    window.util.isDebounce(updateWizards);
   };
 
   window.wizard.onCoatChange = function (color) {
     coatColor = color;
-    updateWizards();
+    window.util.isDebounce(updateWizards);
   };
 
   var successHandler = function (data) {
     wizards = data;
-    updateWizards();
+    window.util.isDebounce(updateWizards);
   };
 
   var errorHandler = function (errorMessage) {
