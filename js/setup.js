@@ -1,29 +1,5 @@
 'use strict';
 (function () {
-  var COAT_COLORS = [
-    'rgb(146, 100, 161)',
-    'rgb(215, 210, 55)',
-    'rgb(241, 43, 107)',
-    'rgb(101, 137, 164)',
-    'rgb(0, 0, 0)',
-    'rgb(215, 210, 55)',
-    'rgb(56, 159, 117)',
-    'rgb(241, 43, 107)'
-  ];
-
-  var EYES_COLORS = [
-    'red',
-    'orange',
-    'yellow',
-    'green',
-    'lightblue',
-    'blue',
-    'purple'
-  ];
-
-  var wizardElement = document.querySelector('.setup-wizard');
-  var wizardCoatElement = wizardElement.querySelector('.wizard-coat');
-  var wizardEyesElement = wizardElement.querySelector('.wizard-eyes');
   var userDialog = document.querySelector('.setup');
   var wizards = [];
   var coatColor;
@@ -45,8 +21,9 @@
       return 1;
     } else if (left < right) {
       return -1;
-    } else {}
-    return 0
+    } else {
+      return 0;
+    }
   };
 
   var updateWizards = function () {
@@ -59,22 +36,15 @@
     }));
   };
 
-  var getRandomElement = function (array) {
-    var randomElementIndex = Math.floor(Math.random() * array.length);
-    return array[randomElementIndex];
+  window.wizard.onEyesChange = function (color) {
+    eyesColor = color;
+    updateWizards();
   };
-  wizardCoatElement.addEventListener('click', function () {
-    var newColor = getRandomElement(COAT_COLORS);
-    this.style.fill = newColor;
-    coatColor = newColor;
+
+  window.wizard.onCoatChange = function (color) {
+    coatColor = color;
     updateWizards();
-  });
-  wizardEyesElement.addEventListener('click', function () {
-    var newColor = getRandomElement(EYES_COLORS);
-    this.style.fill = newColor;
-    eyesColor = newColor;
-    updateWizards();
-  });
+  };
 
   var successHandler = function (data) {
     wizards = data;
