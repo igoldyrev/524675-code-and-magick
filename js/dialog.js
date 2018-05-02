@@ -2,6 +2,7 @@
 (function () {
   var setup = document.querySelector('.setup');
   var dialogSetup = setup.querySelector('.setup-user-pic');
+  var dragged = false;
 
   dialogSetup.addEventListener('mousedown', function (evt) {
     evt.preventDefault();
@@ -12,6 +13,7 @@
     };
 
     var onMouseMove = function (moveEvt) {
+      dragged = true;
       moveEvt.preventDefault();
 
       var shift = {
@@ -42,6 +44,12 @@
 
     document.addEventListener('mousemove', onMouseMove);
     document.addEventListener('mouseup', onMouseUp);
+  });
+  dialogSetup.addEventListener('click', function (evt) {
+    if (dragged) {
+      evt.preventDefault();
+      dragged = false;
+    }
   });
 
   dialogSetup.style.zIndex = '1';
